@@ -1,6 +1,6 @@
 package springserver.annotation;
 
-import springserver.validator.UniqueUsernameValidator;
+import springserver.validator.UniqueDisplaynameValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -9,11 +9,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = UniqueUsernameValidator.class)
+@Constraint(validatedBy = UniqueDisplaynameValidator.class)
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UniqueUsername {
-    String message() default "{user.constraints.UniqueUsername.message}";
+public @interface UniqueDisplayname {
+    String message() default "{user.constraints.UniqueDisplayname.message}";
 
     Class<?>[] groups() default {};
 

@@ -35,43 +35,48 @@ export const LoginPage = (props) => {
     disableSubmit = true;
   }
   return (
-    <div className="container">
-      <h1 className="text-center">Login</h1>
-      <div className="col-12 mb-3">
-        <Input
-          label="Informe o usuário"
-          placeholder="Your username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </div>
-      <div className="col-12 mb-3">
-        <Input
-          label="Informe a senha"
-          placeholder="Your password"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </div>
-      {apiError && (
-        <div className="col-12 mb-3">
-          <div className="alert alert-danger">{apiError}</div>
-        </div>
-      )}
+      <div style={{backgroundImage: "url(/background.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: "cover", position: "revert",
+          height: '100vh',
+          width: '100vw' }}>
+          <div style={{backgroundColor: "#323232f2", height: '100vh',
+              width: '25vw'}}>
+              <div className="container" style={{verticalAlign: "middle", position: "relative", display: "table-cell", height: '100vh',
+                  width: '25vw'}}>
+                  <div className="col-12 mb-3" >
+                      <Input
+                          placeholder="E-mail"
+                          value={username}
+                          onChange={(event) => setUsername(event.target.value)}
+                      />
+                  </div>
+                  <div className="col-12 mb-3">
+                      <Input
+                          placeholder="Senha"
+                          type="password"
+                          value={password}
+                          onChange={(event) => setPassword(event.target.value)}
+                      />
+                  </div>
+                  {apiError && (
+                      <div className="col-12 mb-3">
+                          <div className="alert alert-danger">{apiError}</div>
+                      </div>
+                  )}
 
-      <div className="text-center">
-        <ButtonWithProgress
-          disabled={pendingApiCall || disableSubmit}
-          onClick={onClickLogin}
-          pendingApiCall={pendingApiCall}
-          text="Login"
-        />
+                  <div className="text-center">
+                      <ButtonWithProgress
+                          disabled={pendingApiCall || disableSubmit}
+                          onClick={onClickLogin}
+                          pendingApiCall={pendingApiCall}
+                          text="Entrar"
+                      />
+                  </div>
+                  <div className='text-center' style={{color: "white"}}>
+                      Não possui cadastro? <Link to="/signup">Cadastre-se</Link>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div className='text-center'>
-        Não possui cadastro? <Link to="/signup">Cadastre-se</Link>
-      </div>
-    </div>
   );
 };
 

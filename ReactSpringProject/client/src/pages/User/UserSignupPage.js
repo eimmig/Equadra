@@ -66,64 +66,137 @@ export const UserSignupPage = (props) => {
     }
 
     return (
-        <div className="container">
-            <h1 className="text-left" >Sign Up</h1>
-            <div className="text-center col-12 mb-3">
+        <div style={{backgroundImage: "url(/background.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: "cover", position: "revert",
+            height: '100vh',
+            width: '100vw' }}>
+            <div className="container" style={{backgroundColor: "#323232f2"}}>
+                <div className="container">
+                    <div style={{paddingBottom: "100px"}}>
+                        TESTEEEE
+                    </div>
+                    <div className="text-left col-12 mb-3">
+                            <Input
+                                name="displayname"
+                                type="text"
+                                placeholder="Informe seu nome"
+                                value={form.displayname}
+                                onChange={onChange}
+                                hasError={errors.displayname && true}
+                                error={errors.displayname}
+                            />
+
+                    </div>
+                    <div className="text-center col-12 mb-3">
+                            <Input
+                                name="username"
+                                type="text"
+                                placeholder="Informe o usuário"
+                                value={form.username}
+                                onChange={onChange}
+                                hasError={errors.username && true}
+                                error={errors.username} />
+                    </div>
+                    <div className="text-left col-12 mb-3">
+                        <Input
+                            name="displayname"
+                            type="text"
+                            placeholder="Informe seu CPF/CNPJ"
+                            value={form.displayname}
+                            onChange={onChange}
+                            hasError={errors.displayname && true}
+                            error={errors.displayname}
+                        />
+                    </div>
+                    <div className="text-left col-12 mb-3">
+                        <Input
+                            name="displayname"
+                            type="text"
+                            placeholder="Informe seu Estado"
+                            value={form.displayname}
+                            onChange={onChange}
+                            hasError={errors.displayname && true}
+                            error={errors.displayname}
+                        />
+
+                    </div>
+                    <div className="text-left col-12 mb-3">
+                        <Input
+                            name="displayname"
+                            type="text"
+                            placeholder="Informe sua Cidade"
+                            value={form.displayname}
+                            onChange={onChange}
+                            hasError={errors.displayname && true}
+                            error={errors.displayname}
+                        />
+
+                    </div><div className="text-left col-12 mb-3">
                     <Input
                         name="displayname"
-                        label="Informe o seu nome"
                         type="text"
-                        placeholder="Informe seu nome"
+                        placeholder="Informe seu Bairro"
                         value={form.displayname}
                         onChange={onChange}
                         hasError={errors.displayname && true}
                         error={errors.displayname}
                     />
 
-            </div>
-            <div className="text-center col-12 mb-3">
-                    <Input
-                        name="username"
-                        label="Informe o usuário"
-                        type="text"
-                        placeholder="Informe o usuário"
-                        value={form.username}
-                        onChange={onChange}
-                        hasError={errors.username && true}
-                        error={errors.username} />
-            </div>
-            <div className="text-center col-12 mb-3">
-                    <Input
-                        name="password"
-                        label="Informe a sua senha"
-                        type="password" 
-                        placeholder="Informe sua senha"
-                        value={form.password}
-                        onChange={onChange}
-                        hasError={errors.password && true}
-                        error={errors.password}
-                    />
-            </div>
-            <div className="text-center col-12 mb-3">
-                    <Input
-                        name="passwordRepeat"
-                        label="Repita a sua senha"
-                        type="password" placeholder="Confirme sua senha"
-                        value={form.passwordRepeat}
-                        onChange={onChange}
-                        hasError={passwordRepeatError && true}
-                        error={errors.password} />
-            </div>
-            <div className="text-center">
-                <ButtonWithProgress
-                    disabled={pendingApiCall || passwordRepeatError ? true : false}
-                    onClick={onClickSignup}
-                    pendingApiCall={pendingApiCall}
-                    text="Cadastrar"
-                />
-            </div>
-            <div className='text-center'>
-                Já possui cadastro? <Link to="/">Login</Link>
+                </div>
+                    <div className="text-left col-12 mb-3">
+                        <Input
+                            name="displayname"
+                            type="text"
+                            placeholder="Informe sua Rua"
+                            value={form.displayname}
+                            onChange={onChange}
+                            hasError={errors.displayname && true}
+                            error={errors.displayname}
+                        />
+                    </div>
+                    <div className="text-left col-12 mb-3">
+                        <Input
+                            name="displayname"
+                            type="text"
+                            placeholder="Informe seu Numero"
+                            value={form.displayname}
+                            onChange={onChange}
+                            hasError={errors.displayname && true}
+                            error={errors.displayname}
+                        />
+
+                    </div>
+                    <div className="text-center col-12 mb-3">
+                            <Input
+                                name="password"
+                                type="password"
+                                placeholder="Informe sua senha"
+                                value={form.password}
+                                onChange={onChange}
+                                hasError={errors.password && true}
+                                error={errors.password}
+                            />
+                    </div>
+                    <div className="text-center col-12 mb-3">
+                            <Input
+                                name="passwordRepeat"
+                                type="password" placeholder="Confirme sua senha"
+                                value={form.passwordRepeat}
+                                onChange={onChange}
+                                hasError={passwordRepeatError && true}
+                                error={errors.password} />
+                    </div>
+                    <div className="text-center">
+                        <ButtonWithProgress
+                            disabled={pendingApiCall || passwordRepeatError ? true : false}
+                            onClick={onClickSignup}
+                            pendingApiCall={pendingApiCall}
+                            text="Cadastrar"
+                        />
+                    </div>
+                    <div className='text-center' style={{color: "white"}}>
+                        Já possui cadastro? <Link to="/">Login</Link>
+                    </div>
+                </div>
             </div>
         </div>
     )
