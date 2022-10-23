@@ -74,9 +74,7 @@ export const UserSignupPage = (props) => {
     let passwordRepeatError;
     const { password, passwordRepeat } = form;
     if (password || passwordRepeat) {
-        passwordRepeatError = passetErrors({});
-        setPendingApiCall(false);
-        navigate('/');word === passwordRepeat ? '' : 'As senhas devem ser iguais';
+        passwordRepeatError = password === passwordRepeat ? '' : 'As senhas devem ser iguais';
     }
 
     return (
