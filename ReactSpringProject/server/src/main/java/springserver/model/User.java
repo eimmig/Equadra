@@ -35,21 +35,27 @@ public class User implements UserDetails {
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", message = "A senha deve conter letras maiúsculas, minúsculas e números")
     private String password;
 
+    @NotNull
     @Size(min = 4, max = 255, message = "O campo cidade não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String cidade;
 
+    @NotNull
     @Size(min = 4, max = 255, message = "O campo bairro não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String bairro;
 
+    @NotNull
     @Size(min = 4, max = 255, message = "O campo rua não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String rua;
 
+    @NotNull
     @Size(min = 4, max = 255, message = "O campo numero não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String numero;
 
+    @NotNull
     @Size(min = 2, max = 2, message = "O campo estado não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String estado;
 
+    @NotNull
     @Size(min = 4, max = 255, message = "O campo cpf_cnpj não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String cpf_cnpj;
 

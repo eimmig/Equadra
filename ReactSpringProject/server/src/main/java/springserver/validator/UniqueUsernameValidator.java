@@ -14,8 +14,7 @@ public class UniqueUsernameValidator
     UserRepository userRepository;
 
     @Override
-    public boolean isValid(String username,
-                           ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(String username, ConstraintValidatorContext constraintValidatorContext) {
         if (userRepository.findByUsername(username) == null) {
             return true;
         }

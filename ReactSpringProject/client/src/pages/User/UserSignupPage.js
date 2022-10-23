@@ -16,7 +16,7 @@ export const UserSignupPage = (props) => {
         cidade: '',
         rua: '',
         numero: '',
-        cpfCnpj: '',
+        cpf_cnpj: '',
         bairro: ''
     });
 
@@ -53,7 +53,7 @@ export const UserSignupPage = (props) => {
             cidade: form.cidade,
             rua: form.rua,
             numero: form.numero,
-            cpfCnpj: form.cpfCnpj,
+            cpf_cnpj: form.cpf_cnpj,
             bairro: form.bairro
         }
         setPendingApiCall(true);
@@ -95,7 +95,6 @@ export const UserSignupPage = (props) => {
                                 hasError={errors.displayname && true}
                                 error={errors.displayname}
                             />
-
                     </div>
                     <div className="text-center col-12 mb-3">
                             <Input
@@ -109,13 +108,13 @@ export const UserSignupPage = (props) => {
                     </div>
                     <div className="text-left col-12 mb-3">
                         <Input
-                            name="cpfCnpj"
+                            name="cpf_cnpj"
                             type="text"
                             placeholder="Informe seu CPF/CNPJ"
-                            value={form.cpfCnpj}
+                            value={form.cpf_cnpj}
                             onChange={onChange}
-                            hasError={errors.cpfCnpj && true}
-                            error={errors.cpfCnpj}
+                            hasError={errors.cpf_cnpj && true}
+                            error={errors.cpf_cnpj}
                         />
                     </div>
                     <div className="text-left col-12 mb-3">
