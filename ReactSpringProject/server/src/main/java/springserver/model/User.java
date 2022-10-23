@@ -3,7 +3,7 @@ package springserver.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
-import springserver.annotation.UniqueDisplayname;
+import springserver.annotation.UniqueUsername;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,8 +14,7 @@ import java.beans.Transient;
 import java.util.Collection;
 
 @Data
-@Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "displayname"))
+@Entity(name = "usuario")
 public class User implements UserDetails {
 
     @Id
@@ -23,12 +22,12 @@ public class User implements UserDetails {
     private long id;
 
     @NotNull
-    @Size(min = 4, max = 255, message = "O campo nome não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
+    @Size(min = 4, max = 255, message = "O campo usuario não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
+    @UniqueUsername
     private String username;
 
     @NotNull
-    @UniqueDisplayname
-    @Size(min = 4, max = 255,message = "O campo usuario não pode ser vazio, O tamanho deve ser entre {min} e {max}")
+    @Size(min = 4, max = 255,message = "O campo nome não pode ser vazio, O tamanho deve ser entre {min} e {max}")
     private String displayname;
 
     @NotNull
@@ -48,11 +47,12 @@ public class User implements UserDetails {
     @Size(min = 4, max = 255, message = "O campo numero não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String numero;
 
-    @Size(min = 4, max = 255, message = "O campo estado não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
+    @Size(min = 2, max = 2, message = "O campo estado não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String estado;
 
     @Size(min = 4, max = 255, message = "O campo cpf_cnpj não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String cpf_cnpj;
+
 
 
     @Override

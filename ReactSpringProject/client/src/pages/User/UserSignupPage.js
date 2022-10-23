@@ -12,6 +12,12 @@ export const UserSignupPage = (props) => {
         username: '',
         password: '',
         passwordRepeat: '',
+        estado: '',
+        cidade: '',
+        rua: '',
+        numero: '',
+        cpfCnpj: '',
+        bairro: ''
     });
 
     const [pendingApiCall, setPendingApiCall] = useState(false);
@@ -43,6 +49,12 @@ export const UserSignupPage = (props) => {
             displayname: form.displayname,
             username: form.username,
             password: form.password,
+            estado: form.estado,
+            cidade: form.cidade,
+            rua: form.rua,
+            numero: form.numero,
+            cpfCnpj: form.cpfCnpj,
+            bairro: form.bairro
         }
         setPendingApiCall(true);
         AuthService.signup(user).then(response => {
@@ -62,7 +74,9 @@ export const UserSignupPage = (props) => {
     let passwordRepeatError;
     const { password, passwordRepeat } = form;
     if (password || passwordRepeat) {
-        passwordRepeatError = password === passwordRepeat ? '' : 'As senhas devem ser iguais';
+        passwordRepeatError = passetErrors({});
+        setPendingApiCall(false);
+        navigate('/');word === passwordRepeat ? '' : 'As senhas devem ser iguais';
     }
 
     return (
@@ -97,70 +111,70 @@ export const UserSignupPage = (props) => {
                     </div>
                     <div className="text-left col-12 mb-3">
                         <Input
-                            name="displayname"
+                            name="cpfCnpj"
                             type="text"
                             placeholder="Informe seu CPF/CNPJ"
-                            value={form.displayname}
+                            value={form.cpfCnpj}
                             onChange={onChange}
-                            hasError={errors.displayname && true}
-                            error={errors.displayname}
+                            hasError={errors.cpfCnpj && true}
+                            error={errors.cpfCnpj}
                         />
                     </div>
                     <div className="text-left col-12 mb-3">
                         <Input
-                            name="displayname"
+                            name="estado"
                             type="text"
                             placeholder="Informe seu Estado"
-                            value={form.displayname}
+                            value={form.estado}
                             onChange={onChange}
-                            hasError={errors.displayname && true}
-                            error={errors.displayname}
+                            hasError={errors.estado && true}
+                            error={errors.estado}
                         />
 
                     </div>
                     <div className="text-left col-12 mb-3">
                         <Input
-                            name="displayname"
+                            name="cidade"
                             type="text"
                             placeholder="Informe sua Cidade"
-                            value={form.displayname}
+                            value={form.cidade}
                             onChange={onChange}
-                            hasError={errors.displayname && true}
-                            error={errors.displayname}
+                            hasError={errors.cidade && true}
+                            error={errors.cidade}
                         />
 
                     </div><div className="text-left col-12 mb-3">
                     <Input
-                        name="displayname"
+                        name="bairro"
                         type="text"
                         placeholder="Informe seu Bairro"
-                        value={form.displayname}
+                        value={form.bairro}
                         onChange={onChange}
-                        hasError={errors.displayname && true}
-                        error={errors.displayname}
+                        hasError={errors.bairro && true}
+                        error={errors.bairro}
                     />
 
                 </div>
                     <div className="text-left col-12 mb-3">
                         <Input
-                            name="displayname"
+                            name="rua"
                             type="text"
                             placeholder="Informe sua Rua"
-                            value={form.displayname}
+                            value={form.rua}
                             onChange={onChange}
-                            hasError={errors.displayname && true}
-                            error={errors.displayname}
+                            hasError={errors.rua && true}
+                            error={errors.rua}
                         />
                     </div>
                     <div className="text-left col-12 mb-3">
                         <Input
-                            name="displayname"
+                            name="numero"
                             type="text"
                             placeholder="Informe seu Número"
-                            value={form.displayname}
+                            value={form.numero}
                             onChange={onChange}
-                            hasError={errors.displayname && true}
-                            error={errors.displayname}
+                            hasError={errors.numero && true}
+                            error={errors.numero}
                         />
 
                     </div>

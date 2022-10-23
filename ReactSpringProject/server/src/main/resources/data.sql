@@ -1,8 +1,8 @@
 
-insert into user (username, password,displayname) values ('admin', '$2a$10$r7NbBQhJO0ajUL377HQV2.vpm/aYsr70x.aBAfLng0GRP3cG0kM5m', 'admin');
-insert into user (username, password,displayname) values ('user', '$2a$10$beyIHcn39TB0Z2/7ylIC6eto4zsSkdh1lgpnqz6EM9GkKyEt7SwSK', 'user');
-insert into user (username, password,displayname) values ('user1', '$2a$10$beyIHcn39TB0Z2/7ylIC6eto4zsSkdh1lgpnqz6EM9GkKyEt7SwSK', 'password');
-insert into user (username, password,displayname) values ('user2', '$2a$10$beyIHcn39TB0Z2/7ylIC6eto4zsSkdh1lgpnqz6EM9GkKyEt7SwSK', 'password');
+insert into usuario (username, password,displayname) values ('admin', '$2a$10$r7NbBQhJO0ajUL377HQV2.vpm/aYsr70x.aBAfLng0GRP3cG0kM5m', 'admin');
+insert into usuario (username, password,displayname) values ('user', '$2a$10$beyIHcn39TB0Z2/7ylIC6eto4zsSkdh1lgpnqz6EM9GkKyEt7SwSK', 'user');
+insert into usuario (username, password,displayname) values ('user1', '$2a$10$beyIHcn39TB0Z2/7ylIC6eto4zsSkdh1lgpnqz6EM9GkKyEt7SwSK', 'password');
+insert into usuario (username, password,displayname) values ('user2', '$2a$10$beyIHcn39TB0Z2/7ylIC6eto4zsSkdh1lgpnqz6EM9GkKyEt7SwSK', 'password');
 
 insert into conta (user_id, numero, agencia, banco, tipoconta) values (1, '123456789', '123', 'Itau', 'CC');
 insert into conta (user_id, numero, agencia, banco, tipoconta) values (2, '987654321', '123', 'Bradesco', 'CC');

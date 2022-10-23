@@ -1,14 +1,14 @@
 package springserver.validator;
 
-import springserver.annotation.UniqueDisplayname;
+import springserver.annotation.UniqueUsername;
 import springserver.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class UniqueDisplaynameValidator
-        implements ConstraintValidator<UniqueDisplayname, String> {
+public class UniqueUsernameValidator
+        implements ConstraintValidator<UniqueUsername, String> {
 
     @Autowired
     UserRepository userRepository;
