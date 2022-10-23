@@ -15,7 +15,7 @@ import java.util.Collection;
 
 @Data
 @Entity
- @Table(uniqueConstraints = @UniqueConstraint(columnNames = "displayname"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "displayname"))
 public class User implements UserDetails {
 
     @Id
@@ -53,9 +53,6 @@ public class User implements UserDetails {
 
     @Size(min = 4, max = 255, message = "O campo cpf_cnpj não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String cpf_cnpj;
-
-    @Size(min = 1, max = 1, message = "O campo tipo_pessoa não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
-    private String tipo_pessoa;
 
 
     @Override

@@ -67,18 +67,17 @@ export const UserSignupPage = (props) => {
 
     return (
         <div style={{backgroundImage: "url(/background.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: "cover", position: "revert",
-            height: '100vh',
-            width: '100vw' }}>
+            height: '100vh', width: '100vw', filter:"revert" }}>
             <div className="container" style={{backgroundColor: "#323232f2"}}>
                 <div className="container">
                     <div style={{paddingBottom: "100px"}}>
-                        TESTEEEE
+                        <img src="/logo192.png"/>
                     </div>
                     <div className="text-left col-12 mb-3">
                             <Input
                                 name="displayname"
                                 type="text"
-                                placeholder="Informe seu nome"
+                                placeholder="Informe seu Nome"
                                 value={form.displayname}
                                 onChange={onChange}
                                 hasError={errors.displayname && true}
@@ -90,7 +89,7 @@ export const UserSignupPage = (props) => {
                             <Input
                                 name="username"
                                 type="text"
-                                placeholder="Informe o usuário"
+                                placeholder="Informe o seu E-mail"
                                 value={form.username}
                                 onChange={onChange}
                                 hasError={errors.username && true}
@@ -157,7 +156,7 @@ export const UserSignupPage = (props) => {
                         <Input
                             name="displayname"
                             type="text"
-                            placeholder="Informe seu Numero"
+                            placeholder="Informe seu Número"
                             value={form.displayname}
                             onChange={onChange}
                             hasError={errors.displayname && true}
@@ -169,7 +168,7 @@ export const UserSignupPage = (props) => {
                             <Input
                                 name="password"
                                 type="password"
-                                placeholder="Informe sua senha"
+                                placeholder="Informe sua Senha"
                                 value={form.password}
                                 onChange={onChange}
                                 hasError={errors.password && true}
@@ -179,7 +178,7 @@ export const UserSignupPage = (props) => {
                     <div className="text-center col-12 mb-3">
                             <Input
                                 name="passwordRepeat"
-                                type="password" placeholder="Confirme sua senha"
+                                type="password" placeholder="Confirme sua Senha"
                                 value={form.passwordRepeat}
                                 onChange={onChange}
                                 hasError={passwordRepeatError && true}

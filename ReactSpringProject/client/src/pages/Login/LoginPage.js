@@ -42,6 +42,7 @@ export const LoginPage = (props) => {
               width: '25vw'}}>
               <div className="container" style={{verticalAlign: "middle", position: "relative", display: "table-cell", height: '100vh',
                   width: '25vw'}}>
+                  <img src="/logo192.png"/>
                   <div className="col-12 mb-3" >
                       <Input
                           placeholder="E-mail"
