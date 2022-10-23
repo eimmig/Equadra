@@ -13,16 +13,6 @@ const AuthenticatedRoutes = () => {
             <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-
-                <Route path="/contas" element={<ContaPageList />} />
-                <Route path="/contas/new" element={<ContaPageForm />} />
-                <Route path="/contas/:id" element={<ContaPageForm />} />
-
-                <Route path="/movimentos" element={<MovimentoPageList />} />
-                <Route path="/movimentos/new" element={<MovimentoPageForm />} />
-                <Route path="/movimentos/:id" element={<MovimentoPageForm />} />
-
-
                 <Route path="/*" element={<HomePage />} />
             </Routes>
         </div>

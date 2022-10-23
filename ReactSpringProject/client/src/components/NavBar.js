@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/imagem-logo.png";
 import AuthService from "../services/Auth/auth.service";
 
 const NavBar = (props) => {
@@ -11,11 +10,11 @@ const NavBar = (props) => {
     };
 
     return (
-        <div className="shadow-sm mb-2 bg-primary">
+        <div className="shadow-sm mb-2 " style={{backgroundColor: "#0db600f2"}}>
             <div className="container">
-                <nav className="navbar navbar-light navbar-expand">
+                <nav className="navbar navbar-expand" style={{backgroundColor: "#0db600f2"}}>
                     <Link to="/" className="navbar-brand">
-                        <img src={logo} width="60" />
+                        <img src="/logo192.png" width="40" />
                     </Link>
                     <ul className="navbar-nav me-auto mb-2 mb-md-0">
                         <li className="nav-item">
@@ -23,18 +22,6 @@ const NavBar = (props) => {
                                 Home
                             </NavLink>
                         </li>
-
-                        <li className="nav-item">
-                            <NavLink to="/contas" className={ (navData) => navData.isActive ? "nav-link active" : "nav-link"}>
-                                Contas
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="/movimentos" className={ (navData) => navData.isActive ? "nav-link active" : "nav-link"}>
-                                Movimentos
-                            </NavLink>
-                        </li>
-
 
                         <li className="nav-item">
                             <button className="btn btn-light" onClick={onClickLogout}>

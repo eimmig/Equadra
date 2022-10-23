@@ -24,28 +24,6 @@ const HomePage = () => {
 
     return (
         <div className="container">
-            <h3>Relatório de Totais em Conta</h3>
-            <button className="btn btn-primary" onClick={() => window.print()}> Imprimir Relatório</button>
-
-            <table id="table" className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Conta</th>
-                        <th>Valor total a receber</th>
-                        <th>Valor em conta</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map(item => (
-                        <tr key={item.id}>
-                            <td>{item.conta.banco} - {item.conta.agencia} - {item.conta.numero}</td>
-                            <td>{item.valor}</td>
-                            <td>{item.valorpago}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-
             {apiError && (
                 <div className="alert alert-danger">{apiError}</div>
             )}
