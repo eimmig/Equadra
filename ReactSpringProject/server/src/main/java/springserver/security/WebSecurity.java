@@ -28,24 +28,30 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .exceptionHandling()
-                .authenticationEntryPoint( authenticationEntryPoint )
-                .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/users").permitAll()
-
-                // .antMatchers("/categories").permitAll()
-
-                .anyRequest().authenticated()
-                .and()
-                // Filters
-                .addFilter(
-                        new JWTAuthenticationFilter(authenticationManager(),
-                                getApplicationContext()))
-                .addFilter(
-                        new JWTAuthorizationFilter(authenticationManager(),
-                                getApplicationContext())
-                )
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .authenticationEntryPoint( authenticationEntryPoint );
+//                .and()
+//                .authorizeRequests()
+////                .antMatchers(HttpMethod.POST,"/api").permitAll()
+////                .antMatchers(HttpMethod.POST,"/api/users").permitAll()
+////                .antMatchers(HttpMethod.POST,"/users").permitAll()
+////
+////                .antMatchers(HttpMethod.POST,"/api").permitAll()
+////                .antMatchers(HttpMethod.POST,"/api/users").permitAll()
+////                .antMatchers(HttpMethod.POST,"/users").permitAll()
+//
+//                // .antMatchers("/categories").permitAll()
+//
+////                .anyRequest().authenticated()
+//                .and()
+//                // Filters
+//                .addFilter(
+//                        new JWTAuthenticationFilter(authenticationManager(),
+//                                getApplicationContext()))
+//                .addFilter(
+//                        new JWTAuthorizationFilter(authenticationManager(),
+//                                getApplicationContext())
+//                )
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Override

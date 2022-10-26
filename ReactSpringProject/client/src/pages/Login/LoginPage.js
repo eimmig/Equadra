@@ -3,6 +3,7 @@ import AuthService from '../../services/Auth/auth.service';
 import ButtonWithProgress from '../../components/buttonWithProgress';
 import Input from '../../components/input';
 import { Link } from 'react-router-dom';
+import './LoginPage.css';
 
 export const LoginPage = (props) => {
 
@@ -23,7 +24,6 @@ export const LoginPage = (props) => {
     };
     AuthService.login(body).then((response) => {
       setPendingApiCall(false);
-      window.location.reload();
     })
   }
 
@@ -35,49 +35,38 @@ export const LoginPage = (props) => {
     disableSubmit = true;
   }
   return (
-      <div style={{backgroundImage: "url(/background.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: "cover", position: "revert",
-          height: '100vh',
-          width: '100vw' }}>
-          <div style={{backgroundColor: "#323232f2", height: '100vh',
-              width: '25vw'}}>
-              <div className="container" style={{verticalAlign: "middle", position: "relative", display: "table-cell", height: '100vh',
-                  width: '25vw'}}>
-                  <img src="/logo192.png"/>
-                  <div className="col-12 mb-3" >
-                      <Input
-                          placeholder="E-mail"
-                          value={username}
-                          onChange={(event) => setUsername(event.target.value)}
-                      />
-                  </div>
-                  <div className="col-12 mb-3">
-                      <Input
-                          placeholder="Senha"
-                          type="password"
-                          value={password}
-                          onChange={(event) => setPassword(event.target.value)}
-                      />
-                  </div>
-                  {apiError && (
-                      <div className="col-12 mb-3">
-                          <div className="alert alert-danger">{apiError}</div>
-                      </div>
-                  )}
+    <div className="wrapper">
+    <div className="box">
+        <form action="">
+            <h1>Entrar</h1>
+            <div className="username">
+                <Input type="text" placeholder="E-mail"  value={username}
+                onChange={(event) => setUsername(event.target.value)}
+                id="username"/>
+                <i className="far fa-envelope"></i>
+            </div>
+            <div className="password">
+                <Input type="password" placeholder="Senha"  value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                id="password"/>
+                <i className="fas fa-lock-open"></i>
+            </div>
+        </form>
+        <button
+            disabled={pendingApiCall || disableSubmit}
+            onClick={onClickLogin}
+             id="btnLogin" type="submit">Entrar</button>
 
-                  <div className="text-center">
-                      <ButtonWithProgress
-                          disabled={pendingApiCall || disableSubmit}
-                          onClick={onClickLogin}
-                          pendingApiCall={pendingApiCall}
-                          text="Entrar"
-                      />
-                  </div>
-                  <div className='text-center' style={{color: "white"}}>
-                      Não possui cadastro? <Link to="/signup">Cadastre-se</Link>
-                  </div>
-              </div>
-          </div>
-      </div>
+             {props.pendingApiCall && (
+            <div className="spinner-border text-light spinner-border-sm mr-sm-1"
+                role="status">
+                <span className="visually-hidden">Aguarde...</span>
+            </div>
+        )}
+
+        <a href='/signup' className="btn btn-sm cadastrar">Cadastre-se</a>
+    </div>
+</div>
   );
 };
 

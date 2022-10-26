@@ -6,5 +6,5 @@ export const postSignup = (user) => {
 };
 
 export const login = (user) => {
-    return axios.post('/login', user);
+    return axios.post('/api/login', user);
 };
