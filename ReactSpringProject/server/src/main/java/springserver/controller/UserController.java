@@ -8,7 +8,7 @@ import springserver.service.GenericCrudService;
 import springserver.service.UserService;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("users")
 public class UserController extends GenericCrudController<User,Long> {
 
     @Autowired

@@ -11,13 +11,12 @@ import springserver.security.UserDTO;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("login")
 public class LoginController {
 
     @Autowired
     private AuthUserService authUserService;
-
-    @GetMapping("/user-info")
+    @GetMapping("user-info")
     public UserDTO getUserInfo(Principal principal) {
         return new UserDTO( (User)
                 authUserService.loadUserByUsername(principal.getName()));

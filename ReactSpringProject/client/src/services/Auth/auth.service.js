@@ -6,7 +6,7 @@ const signup = (user) => {
 
 const login = (user) => {
   return axios
-    .post("/api/login", user)
+    .post("/login/teste", user)
     .then((response) => {
       if (response.data.token) {
         localStorage.setItem("token", JSON.stringify(response.data.token));
