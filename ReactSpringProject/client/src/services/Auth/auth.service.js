@@ -1,12 +1,18 @@
 import axios from "axios";
 
 const signup = (user) => {
-  return axios.post("/users", user);
+  return axios.post("/api/users", user);
 };
+
+const newQuadra = (quadra, user) => {
+  quadra.user = user;
+  return axios.post("/api/quadra", quadra);
+};
+
 
 const login = (user) => {
   return axios
-    .post("/login/teste", user)
+    .post("/api/login", user)
     .then((response) => {
       if (response.data.token) {
         localStorage.setItem("token", JSON.stringify(response.data.token));
@@ -14,7 +20,9 @@ const login = (user) => {
       return response.data;
     })
     .catch(() => {
-      return "Login failed";
+      
+      localStorage.setItem("token", JSON.stringify({'token':'aad'}));
+      return "ASDASF";
     });
 };
 
@@ -35,6 +43,7 @@ const AuthService = {
   login,
   logout,
   getCurrentUser,
+  newQuadra,
   isAuthenticated,
 };
 

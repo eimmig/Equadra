@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import input from '../../components/input';
+import Input from '../../components/input.js';
 import ButtonWithProgress from '../../components/buttonWithProgress';
 import './CadastroUsuario.css';
 
@@ -78,67 +78,134 @@ export const UserSignupPage = (props) => {
         passwordRepeatError = password === passwordRepeat ? '' : 'As senhas devem ser iguais';
     }
 
+
     return (
-        <div class="wrapper">
-        <div class="box">
-            <form action="">
-                <h1>Cadastrar</h1>
-                <div class="row">
-                    <div class="username col-6">
-                        <input type="text" placeholder="Nome"
-                        id="nome"/>
-                        <i class="icon fa-regular fa-circle-user"></i>
-                    </div>
-                    <div class="username col-6">
-                        <input type="text" placeholder="E-mail"
-                        id="username"/>
-                        <i class="icon far fa-envelope icon"></i>
-                    </div>
-                    <div class="username col-6">
-                        <input type="text" placeholder="Estado"
-                        id="uf"/>
-                        <i class="icon fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <div class="username col-6">
-                        <input type="text" placeholder="Cidade"
-                        id="cidade"/>
-                        <i class="icon fa-solid fa-city"></i>
-                    </div>
-                    <div class="username col-6">
-                        <input type="text" placeholder="Bairro"
-                        id="bairro"/>
-                        <i class="icon fa-solid fa-tree-city"></i>
-                    </div>
-                    <div class="username col-6">
-                        <input type="text" placeholder="Rua"
-                        id="rua"/>
-                        <i class="icon fa-solid fa-road"></i>
-                    </div>
-                    <div class="username col-6">
-                        <input type="text" placeholder="Número"
-                        id="numero"/>
-                        <i class="icon fa-solid fa-list-ol"></i>
-                    </div>
-                    <div class="username col-6">
-                        <input type="text" placeholder="CPF/CNPJ"
-                        id="cpfcnpj"/>
-                        <i class="icon fa-regular fa-id-card"></i>
-                    </div>
-                    <div class="password col-6">
-                        <input type="password" placeholder="Senha"
-                        id="password"/>
-                        <i class="icon fas fa-lock-open"></i>
-                    </div>
-                    <div class="password col-6">
-                        <input type="password" placeholder="Repita a Senha"
-                        id="password"/>
-                        <i class="icon fas fa-lock-open"></i>
-                    </div>
+        <>
+            <div className="wrapperCadastro bodyCadastro">
+                <div className="boxCadastro">
+                    <form action="">
+                        <h1>Cadastrar</h1>
+                        <div className="row">
+                            <div className="usernameCadastro col-6">
+                                <Input
+                                        name="displayname"
+                                        type="text"
+                                        placeholder="Nome"
+                                        value={form.displayname}
+                                        onChange={onChange}
+                                        hasError={errors.displayname && true}
+                                        error={errors.displayname}
+                                    />
+                                <i className="icon fa-regular fa-circle-user"></i>
+                            </div>
+                            <div className="usernameCadastro col-6">
+                            <Input
+                                        name="username"
+                                        type="text"
+                                        placeholder="E-mail"
+                                        value={form.username}
+                                        onChange={onChange}
+                                        hasError={errors.username && true}
+                                        error={errors.username} />
+                                <i className="icon far fa-envelope icon"></i>
+                            </div>
+                            <div className="usernameCadastro col-6">
+                            <Input
+                                    name="cpf_cnpj"
+                                    type="numeric"
+                                    placeholder="CPF/CNPJ"
+                                    value={form.cpf_cnpj}
+                                    onChange={onChange}
+                                    hasError={errors.cpf_cnpj && true}
+                                    error={errors.cpf_cnpj}
+                                />
+                            </div>
+                            <div className="usernameCadastro col-6">
+                            <Input
+                                    name="estado"
+                                    type="text"
+                                    placeholder="Estado"
+                                    value={form.estado}
+                                    onChange={onChange}
+                                    maxLength="2"
+                                    className="toUpperCaseCadastro"
+                                    hasError={errors.estado && true}
+                                    error={errors.estado}
+                                />
+                                <i className="icon fa-solid fa-city"></i>
+                            </div>
+                            <div className="text-left col-6 mb-3">
+                                <Input
+                                    name="cidade"
+                                    type="text"
+                                    placeholder="Cidade"
+                                    value={form.cidade}
+                                    onChange={onChange}
+                                    hasError={errors.cidade && true}
+                                    error={errors.cidade}
+                                />
+
+                            </div>
+                            <div className="text-left col-6 mb-3">
+                            <Input
+                                name="bairro"
+                                type="text"
+                                placeholder="Bairro"
+                                value={form.bairro}
+                                onChange={onChange}
+                                hasError={errors.bairro && true}
+                                error={errors.bairro}
+                            />
+
+                            </div>
+                            <div className="text-left col-6 mb-3">
+                                <Input
+                                    name="rua"
+                                    type="text"
+                                    placeholder="Rua"
+                                    value={form.rua}
+                                    onChange={onChange}
+                                    hasError={errors.rua && true}
+                                    error={errors.rua}
+                                />
+                            </div>
+                            <div className="text-left col-6 mb-3">
+                                <Input
+                                    name="numero"
+                                    type="text"
+                                    placeholder="Número"
+                                    value={form.numero}
+                                    onChange={onChange}
+                                    hasError={errors.numero && true}
+                                    error={errors.numero}
+                                />
+                            </div>
+                            <div className="text-center col-6 mb-3">
+                                    <Input
+                                        name="password"
+                                        type="password"
+                                        placeholder="Senha"
+                                        value={form.password}
+                                        onChange={onChange}
+                                        hasError={errors.password && true}
+                                        error={errors.password}
+                                    />
+                            </div>
+                            <div className="text-center col-6 mb-3">
+                                    <Input
+                                        name="passwordRepeat"
+                                        type="password" placeholder="Confirme sua Senha"
+                                        value={form.passwordRepeat}
+                                        onChange={onChange}
+                                        hasError={passwordRepeatError && true}
+                                        error={errors.password} />
+                            </div>
+                        </div>          
+                    </form>
+                    <button id="btnLogin" type="submit"  onClick={onClickSignup}>Cadastrar</button>
                 </div>
-            </form>
-            <button id="btnLogin" type="submit"  onClick={onClickSignup}>Cadastrar</button>
-        </div>
-    </div>
+            </div>
+        </>
     )
 };
 

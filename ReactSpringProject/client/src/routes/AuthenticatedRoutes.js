@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import NavBar from "../components/NavBar";
 import HomePage from "../pages/HomePage/HomePage";
+import Quadras from "../pages/Quadra/Quadra";
 const AuthenticatedRoutes = () => {
     return (
         <div>
-            <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/newquadra" element={<Quadras />} />
             </Routes>
         </div>
     );

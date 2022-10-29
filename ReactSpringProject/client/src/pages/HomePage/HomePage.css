@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
-
 :root{
     --green:#009c1d;
     --black:#130f40;
     --light-color:#666;
-    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+    --box-shadow:0 .5rem 1.5rem rgba(255, 255, 255, 0.1);
     --border:.2rem solid rgba(0,0,0,.1);
     --outline:.1rem solid rgb(0, 156, 31);
     --outline-hover:.2rem solid rgb(0, 255, 89);
 }
 
-*{
+.Home{
     font-family: 'Poppins', sans-serif;
     margin:0; padding:0;
     box-sizing: border-box;
@@ -19,22 +18,22 @@
     transition: all .2s linear;
 }
 
-html{
+.htmlHome{
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding-top: 7rem;
 }
 
-body{
+.bodyHome{
     background:#eee;
 }
 
-section{
+.sectionHome{
     padding:2rem 9%;
 }
 
-.heading{
+.headingHome{
     text-align: center;
     padding:2rem 0;
     padding-bottom: 3rem;
@@ -42,7 +41,7 @@ section{
     color:var(--black);
 }
 
-.heading span{
+.headingHome span{
     background: var(--green);
     color:#fff;
     display: inline-block;
@@ -50,7 +49,17 @@ section{
     clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
 }
 
-.btn{
+.modal-internoHome{
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    border-radius: .5rem;
+    border:.2rem solid rgb(0, 156, 31);
+    color:var(--black);
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.btnHome{
     margin-top: 1rem;
     display: inline-block;
     padding:.8rem 3rem;
@@ -62,12 +71,12 @@ section{
     background: none;
 }
 
-.btn:hover{
+.btnHome:hover{
     background: var(--green);
     color:#fff;
 }
 
-.header{
+.headerHome{
     position: fixed;
     top:0; left:0; right: 0;
     z-index: 1000;
@@ -79,27 +88,27 @@ section{
     box-shadow: var(--box-shadow);
 }
 
-.header .logo{
+.headerHome .logoHome{
     font-size: 2.5rem;
     font-weight: bolder;
     color:var(--black);
 }
 
-.header .logo i{
+.headerHome .logoHome i{
     color:var(--green);
 }
 
-.header .navbar a{
+.headerHome .navbarHome a{
     font-size: 1.7rem;
     margin:0 1rem;
     color:var(--black);
 }
 
-.header .navbar a:hover{
+.headerHome .navbarHome a:hover{
     color:var(--green);
 }
 
-.header .icons div{
+.headerHome .iconsHome div{
     height: 4.5rem;
     width: 4.5rem;
     line-height: 4.5rem;
@@ -112,20 +121,20 @@ section{
     text-align: center;
 }
 
-.header .icons div:hover{
+.headerHome .iconsHome div:hover{
     background: var(--green);
     color:#fff;
 }
 
-#menu-btn{
+#menu-btnHome{
     display: none;
 }
 
-.back{
-    background-color: rgb(189, 189, 189);
+.backHome{
+    background-color: #fbfbfb;
 }
 
-.home{
+.homeHome{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,34 +144,34 @@ section{
     padding-bottom: 10rem;
 }
 
-.home .content{
+.homeHome .contentHome{
     text-align: center;
     width:60rem;
 }
 
-.home .content h3{
+.homeHome .contentHome h3{
     color:var(--black);
     font-size: 3rem;
 }
 
-.home .content h3 span{
+.homeHome .contentHome h3 span{
     color:var(--green);
 }
 
-.home .content p{
+.homeHome .contentHome p{
     color:var(--light-color);
     font-size: 1.7rem;
     padding:1rem 0;
     line-height: 1.8;
 }
 
-.features .box-container{
+.featuresHome .box-containerHome{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
 }
 
-.features .box-container .box{
+.featuresHome .box-containerHome .boxHome{
     padding:3rem 2rem;
     background: #fff;
     outline: var(--outline);
@@ -173,74 +182,74 @@ section{
 
 }
 
-.features .box-container .box:hover{
+.featuresHome .box-containeHomer .boxHome:hover{
     outline: var(--outline-hover);
     outline-offset: 0rem;
 }
 
-.features .box-container .box img{
+.featuresHome .box-containerHome .boxHome img{
     margin:1rem 0;
     height: 15rem;
 }
 
-.features .box-container .box h3{
+.featuresHome .box-containerHome .boxHome h3{
     font-size: 2.5rem;
     line-height: 1.8;
     color:var(--black);
 }
 
-.features .box-container .box p{
+.featuresHome .box-containerHome .boxHome p{
     font-size: 1.5rem;
     line-height: 1.8;
     color:var(--light-color);
     padding:1rem 0;
 }
 
-.footer{
+.footerHome{
     background: #fff;
 }
 
-.footer .box-container{
+.footerHome .box-containerHome{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap:1.5rem;
 }
 
-.footer .box-container .box h3{
+.footerHome .box-containerHome .testHome h3{
     font-size: 2.5rem;
     color:var(--black);
     padding:1rem 0;
 }
 
-.footer .box-container .box h3 i .logo{
+.footerHome .box-containerHome .testHome h3 i .logoHome{
     color:var(--green);
 }
 
-.footer .box-container .box .links{
+.footerHome .box-containerHome .testHome .linksHome{
     display: block;
     font-size: 1.5rem;
     color:var(--light-color);
     padding:1rem 0;
 }
 
-.footer .box-container .box .links i{
+.footerHome .box-containerHome .testHome .linksHome i{
     color:var(--green);
     padding-right: .5rem;
 }
 
-.footer .box-container .box .links:hover i{
+.footerHome .box-containerHome .testHome .linksHome:hover i{
     padding-right: 2rem;
 }
 
 
-.footer .box-container .box p{
+.footerHome .box-containerHome .testHome p{
     line-height: 1.8;
     font-size: 1.5rem;
     color:var(--light-color);
     padding:1rem 0;
 }
 
-.footer .box-container .box .share a{
+.footerHome .box-containerHome .testHome .shareHome a{
     height:4rem;
     width:4rem;
     line-height:4rem;
@@ -252,12 +261,12 @@ section{
     text-align: center;
 }
 
-.footer .box-container .box .share a:hover{
+.footerHome .box-containerHome .testHome .shareHome a:hover{
     background: var(--green);
     color: #fff;
 }
 
-.footer .box-container .box .email{
+.footerHome .box-containerHome .testHome .emailHome{
     width: 100%;
     margin:.7rem 0;
     padding:1rem;
@@ -268,13 +277,13 @@ section{
     text-transform: none;
 }
 
-.footer .box-container .box .payment-img{
+.footerHome .box-containerHome .testHome .payment-imgHome{
     margin-top: 2rem;
     height: 3rem;
     display: block;
 }
 
-.footer .credit{
+.footerHome .creditHome{
     text-align: center;
     margin-top: 2rem;
     padding:1rem;
@@ -284,7 +293,7 @@ section{
     border-top: var(--border);
 }
 
-.footer .credit span{
+.footerHome .creditHome span{
     color:#8f00f5;
 }
 
@@ -307,7 +316,7 @@ section{
         font-size: 55%;
     }
 
-    .header{
+    .headerHome{
         padding:2rem;
     }
 
@@ -319,15 +328,15 @@ section{
 
 @media (max-width:768px){
 
-    #menu-btn{
+    #menu-btnHome{
         display: inline-block;
     }
 
-    .header .search-form{
+    .headerHome .search-formHome{
         width:90%;
     }
 
-    .header .navbar{
+    .headerHome .navbarHome{
         position: absolute;
         top:110%; right:-110%;
         width:30rem;
@@ -336,12 +345,12 @@ section{
         background: #fff;
     }
 
-    .header .navbar.active{
+    .headerHome .navbar.activeHome{
         right:2rem;
         transition: .4s linear;
     }
 
-    .header .navbar a{
+    .headerHome .navbarHome a{
         font-size: 2rem;
         margin:2rem 2.5rem;
         display: block;
@@ -355,15 +364,15 @@ section{
         font-size: 50%;
     }
 
-    .heading{
+    .headingHome{
         font-size: 2.5rem;
     }
 
-    .footer{
+    .footerHome{
         text-align: center;
     }
 
-    .footer .box-container .box .payment-img{
+    .footerHome .box-containerHome .boxHome .payment-imgHome{
         margin: 2rem auto;
     }
 

@@ -24,6 +24,7 @@ export const LoginPage = (props) => {
     };
     AuthService.login(body).then((response) => {
       setPendingApiCall(false);
+      window.location.reload();
     })
   }
 
@@ -35,17 +36,17 @@ export const LoginPage = (props) => {
     disableSubmit = true;
   }
   return (
-    <div className="wrapper">
-    <div className="box">
+    <div className="wrapperLogin">
+    <div className="boxLogin">
         <form action="">
             <h1>Entrar</h1>
-            <div className="username">
+            <div className="usernameLogin">
                 <Input type="text" placeholder="E-mail"  value={username}
                 onChange={(event) => setUsername(event.target.value)}
                 id="username"/>
                 <i className="far fa-envelope"></i>
             </div>
-            <div className="password">
+            <div className="passwordLogin">
                 <Input type="password" placeholder="Senha"  value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 id="password"/>
@@ -64,7 +65,7 @@ export const LoginPage = (props) => {
             </div>
         )}
 
-        <a href='/signup' className="btn btn-sm cadastrar">Cadastre-se</a>
+        <a href='/signup' className="btn btn-sm cadastrarLogin">Cadastre-se</a>
     </div>
 </div>
   );

@@ -1,12 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.box {
+.boxLogin {
     border-radius: 20px;
     width: 300px;
     padding: 30px;
@@ -16,14 +10,7 @@
     flex-direction: column;
 }
 
-body{
-    font-family: "montserrat",
-    sans-serif;
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(/public/background.jpg);
-    background-size: cover;
-    background-position: center;
-}
-.box h1{
+.boxLogin h1{
     color: #fff;
     text-transform: uppercase;
     font-weight: 700;
@@ -31,8 +18,8 @@ body{
     text-align: center;
 }
 
-.username,
-.password{
+.usernameLogin,
+.passwordLogin{
     position: relative;
 }
 
@@ -44,8 +31,8 @@ body{
     color: rgb(256,256,256);
 }
 
-.box Input[type="password"],
-.box Input[type="text"]{
+.boxLogin Input[type="password"],
+.boxLogin Input[type="text"]{
     font-size: 20px;
     border: 0px;
     background: none;
@@ -61,13 +48,21 @@ body{
     transition: all .2s ease-in;
 }
 
-.box Input[type="password"]:focus,
-.box Input[type="text"]:focus{
+.boxLogin Input[type="password"]:focus,
+.boxLogin Input[type="text"]:focus{
     width: 250px;
     border-color: rgb(6, 196, 47);
 }
 
-.wrapper {
+.wrapperLogin {
+    font-family: "montserrat",
+    sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(/public/background.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     display: flex;
     height: 100vh;
     align-items: center;
@@ -93,7 +88,7 @@ body{
     border-color: rgb(6, 196, 47);
 }
 
-.cadastrar{
+.cadastrarLogin{
     color: #fff;
     border: 0px;
     background: none;
@@ -109,7 +104,7 @@ body{
     cursor: pointer;
 }
 
-.cadastrar:hover{
+.cadastrarLogin:hover{
     border-color: rgb(6, 196, 47);
 }
 
