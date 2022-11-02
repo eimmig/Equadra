@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomeService from "../../services/Auth/homeService";
 import AuthService from '../../services/Auth/auth.service';
 import './HomePage.css';
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
 
@@ -89,9 +90,9 @@ const HomePage = () => {
                                 <div className="boxHome" key={item.id}>
                                 <img src="https://www.brawlstarsdicas.com.br/wp-content/uploads/2021/06/icone-modo-basquete-brawl-stars-dicas-basket.png" alt="" />
                                 <h3>{item.nomeQuadra}</h3>
-                                    <a className="btnHome"
-                                           href="/seequadra">Ver mais 
-                                    </a>
+                                    <Link className="btnHome"
+                                           to={`/seequadra/${item.id}`}>Ver mais 
+                                    </Link>
                                 </div>
                             ))}
                            
@@ -109,9 +110,9 @@ const HomePage = () => {
                                 <div className="boxHome" key={item.id}>
                                 <img src="https://media.istockphoto.com/vectors/flaming-volley-ball-vector-id672339882?k=20&m=672339882&s=170667a&w=0&h=49MCTGkmIgzsPJOh4wIa-paNtjdBTO7AqUxpaLJ8dv0=" alt="" />
                                 <h3>{item.nomeQuadra}</h3>
-                                <a className="btnHome"
-                                           href="/seequadra">Ver mais 
-                                </a>
+                               <Link className="btnHome"
+                                           to={`/seequadra/${item.id}`}>Ver mais 
+                                </Link>
                                 </div>
                             ))}
 
@@ -129,9 +130,9 @@ const HomePage = () => {
                                 <div className="boxHome" key={item.id}>
                                 <img src="https://static.vecteezy.com/system/resources/previews/001/204/023/non_2x/soccer-png.png" alt="" />
                                 <h3>{item.nomeQuadra}</h3>
-                                <a className="btnHome"
-                                           href="/seequadra">Ver mais 
-                                </a>
+                               <Link className="btnHome"
+                                        to={`/seequadra/${item.id}`}>Ver mais 
+                                </Link>
                                 </div>
                             ))}
 
