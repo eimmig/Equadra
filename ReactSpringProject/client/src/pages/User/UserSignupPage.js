@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from '../../components/input.js';
 import ButtonWithProgress from '../../components/buttonWithProgress';
 import './CadastroUsuario.css';
+import {toast} from 'react-toastify';
 
 import AuthService from "../../services/Auth/auth.service";
 import { Link, useNavigate } from "react-router-dom";
@@ -112,7 +113,7 @@ export const UserSignupPage = (props) => {
                             <div className="usernameCadastro col-6">
                             <Input
                                     name="cpf_cnpj"
-                                    type="numeric"
+                                    type="text"
                                     placeholder="CPF/CNPJ"
                                     value={form.cpf_cnpj}
                                     onChange={onChange}

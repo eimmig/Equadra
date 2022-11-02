@@ -1,21 +1,21 @@
 package equadra.controller;
 
-import equadra.model.User;
+import equadra.model.Quadra;
 import equadra.service.GenericCrudService;
-import equadra.service.UserService;
+import equadra.service.QuadraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/quadra")
-public class QuadraController extends GenericCrudController<User, String> {
+public class QuadraController extends GenericCrudController<Quadra, String> {
 
     @Autowired
-    UserService userService;
+    QuadraService quadraService;
 
     @Override
-    protected GenericCrudService<User, String> getService() {
-        return userService;
+    protected GenericCrudService<Quadra, String> getService() {
+        return quadraService;
     }
 }

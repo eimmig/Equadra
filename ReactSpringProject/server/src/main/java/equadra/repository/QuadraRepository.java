@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QuadraRepository extends JpaRepository<Quadra, String>{
-    Quadra findByNome(String nomequadra);
+    Quadra findByNomeQuadra(String nomequadra);
 }
 
 //Select * from user where displayname LIKE '%Silva'

@@ -8,6 +8,7 @@ const AuthenticatedRoutes = () => {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/newquadra" element={<Quadras />} />
+                <Route path="/seequadra" element={<Quadras />} />
             </Routes>
         </div>
     );

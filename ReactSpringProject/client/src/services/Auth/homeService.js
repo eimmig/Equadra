@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const findAll = () => {
-  return axios.get("/api/users", {headers:getAuthHeader()});
+  return axios.get("/api/quadra", {headers:getAuthHeader()});
 }
 
 const getAuthHeader = () => {

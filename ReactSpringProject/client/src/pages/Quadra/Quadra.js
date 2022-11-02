@@ -1,10 +1,46 @@
 import React, { useState } from "react";
 import Input from '../../components/input.js';
 import AuthService from "../../services/Auth/auth.service";
-import { Link, useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Quadra.css';
 
 export const Quadra = () => {
+    var tipoEsporte = "";
+
+    const onChange = (event) => {
+        const { value, name } = event.target;
+
+        setForm((previousForm) => {
+            return {
+                ...previousForm,
+                [name]: value,
+            };
+        });
+
+        setErrors((previousErrors) => {
+            return {
+                ...previousErrors,
+                [name]: undefined,
+            };
+        });
+    };
+
+    const clickEsporte = () => {
+        
+        if(document.getElementById('basquete').checked) {
+           tipoEsporte = "B";
+        }
+        else if(document.getElementById('futebol').checked) {
+            tipoEsporte = "F";
+        }
+        else if(document.getElementById('volei').checked) {
+            tipoEsporte = "V";
+        }
+        else {
+            tipoEsporte = "";
+        }
+    }
 
     const [form, setForm] = useState({
         nomeQuadra: '',
@@ -13,34 +49,46 @@ export const Quadra = () => {
     });
     const [pendingApiCall, setPendingApiCall] = useState(false);
     const [errors, setErrors] = useState({});
-    const navigate = useNavigate();
     
     const onClickSaveQuadra = () => {
-        const quadra = {
-            nomeQuadra: form.nomeQuadra,
-            tipoEsporte: form.tipoEsporte,
-            user: "",
-        }
-        setPendingApiCall(true);
-        AuthService.newQuadra(quadra, quadra).then(response => {
-            setErrors({});
-            setPendingApiCall(false);
-            navigate('/');
-        }).catch( (apiError) => {
-    
-                if (apiError.response.data && apiError.response.data.validationErrors) {
-                    setErrors(apiError.response.data.validationErrors);
+        if(tipoEsporte === ""){
+            toast.error('Tipo de Esporte não selecionado', {autoClose:5000})
+            return;
+        }else if(form.nomeQuadra === ""){
+            toast.error('Nome da quadra não informado', {autoClose:5000})
+            return;
+        }else{
+            
+            const quadra = {
+                nomeQuadra: form.nomeQuadra,
+                tipoEsporte: tipoEsporte,
+                userId: {id:localStorage.userId},
+            }
+            setPendingApiCall(true);
+            AuthService.newQuadra(quadra).then(response => {
+                if(response == false){
+                    toast.error('Erro ao cadastrar quadra.', {autoClose:5000})
+                }else{
+                    toast.success('Quadra cadastrada com sucesso.', {autoClose:5000})
                 }
                 setPendingApiCall(false);
-                
-        });
+            }).catch( (apiError) => {
+        
+                    if (apiError.response.data && apiError.response.data.validationErrors) {
+                        setErrors(apiError.response.data.validationErrors);
+                    }
+                    setPendingApiCall(false);
+                    
+            });
+        }
       }
 
     return (
         <div className="pageCadQuadra">
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
             <div className="containerCadQuadra">
                 <div className="formimageCadQuadra">
-                    <img src="" alt=""/>
+                    <img src="https://www.mixadesivos.com.br/simulador/f0935e4cd5920aa6c7c996a5ee53a70f/1_17_130919034828_adesivo-de-parede----basquetebol-modelo-2.png" alt=""/>
                 </div>
                 <div className="formCadQuadra">
                     <form action="#">
@@ -52,8 +100,12 @@ export const Quadra = () => {
 
                         <div className="inputgroupCadQuadra">
                             <div className="inputboxCadQuadra">
-                                <label for="firstname">Nome da Quadra</label>
-                                <Input id="firstname" type="text" name="firstname" placeholder="Digite o nome da quadra" required/>
+                                <label htmlFor="firstname">Nome da Quadra</label>
+                                <Input id="nomeQuadra" type="text" name="nomeQuadra" placeholder="Digite o nome da quadra" required
+                                       value={form.nomeQuadra}
+                                       onChange={onChange}
+                                       hasError={errors.nomeQuadra && true}
+                                       error={errors.nomeQuadra}/>
                             </div>
                         </div>
 
@@ -64,24 +116,30 @@ export const Quadra = () => {
 
                             <div className="gendergroupCadQuadra">
                                 <div className="genderinputCadQuadra">
-                                    <input id="Basquete" type="radio" name="gender"/>
-                                    <label for="B">Basquete</label>
+                                    <input id="basquete" type="radio" name="gender"
+                                        onClick={clickEsporte}/>
+                                    <label htmlFor="B">Basquete</label>
                                 </div>
 
                                 <div className="genderinputCadQuadra">
-                                    <input id="Futebol" type="radio" name="gender"/>
-                                    <label for="F">Futebol</label>
+                                    <input id="futebol" type="radio" name="gender"
+                                        onClick={clickEsporte}/>
+                                    <label htmlFor="F">Futebol</label>
                                 </div>
 
                                 <div className="genderinputCadQuadra">
-                                    <input id="Volei" type="radio" name="gender"/>
-                                    <label for="V">Volei</label>
+                                    <input id="volei" type="radio" name="gender"
+                                        onClick={clickEsporte}/>
+                                    <label htmlFor="V">Volei</label>
                                 </div>
                             </div>
                         </div>
 
                         <div className="continuebuttonCadQuadra">
-                            <button onClick={onClickSaveQuadra} type="submit"><a href="#">Cadastrar</a> </button>
+                            <button onClick={onClickSaveQuadra}><a href="">Cadastrar</a> </button>
+                        </div>
+                        <div className="sairCadQuadra">
+                            <a href="/">Sair</a>
                         </div>
                     </form>
                 </div>

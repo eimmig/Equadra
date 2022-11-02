@@ -49,7 +49,7 @@ public class User implements UserDetails {
     private String rua;
 
     @NotNull
-    @Size(min = 4, max = 255, message = "O campo numero não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
+    @Size(min = 1, max = 255, message = "O campo numero não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
     private String numero;
 
     @NotNull

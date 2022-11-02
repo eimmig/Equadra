@@ -38,4 +38,10 @@ public class UserService extends GenericCrudServiceImpl<User, String> {
     public String getCurrentUsername() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }
+
+    public User getuser(long id) {
+        User usuario = userRepository.findById(id);
+
+        return usuario;
+    }
 }

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Table from 'react-bootstrap/Table';
 import HomeService from "../../services/Auth/homeService";
 import AuthService from '../../services/Auth/auth.service';
 import './HomePage.css';
 
 const HomePage = () => {
 
-    const [data, setData] = useState([]);
+    const [dataB, setDataB] = useState([]);
+    const [dataF, setDataF] = useState([]);
+    const [dataV, setDataV] = useState([]);
+
+    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         loadData();
@@ -19,10 +22,26 @@ const HomePage = () => {
 
     const loadData = () => {
         HomeService.findAll().then(response => {
-            setData(response.data);
+            var basquete = [];
+            var futebol = [];
+            var volei = [];
+            response.data.forEach(item => {
+                if (item.tipoEsporte === 'B') {
+                    basquete.push(item);
+                }else if (item.tipoEsporte === 'F') {
+                    futebol.push(item);
+                }else{
+                    volei.push(item);
+                }
+            });
+            setDataB(basquete);
+            setDataF(futebol);
+            setDataV(volei);
         }).catch((error) => {
+
         });
     }
+
     return (
         <>
             <div className="backHome Home htmlHome">
@@ -66,13 +85,15 @@ const HomePage = () => {
 
                         <div className="box-containerHome">
 
-                            <div className="boxHome">
-                                <img src="/public/background.jpg" alt="" />
-                                <h3>vegitables</h3>
-                                <p>upto 45% off</p>
-                                <a href="#" className="btnHome">Reservar</a>
-                            </div>
-
+                            {dataB.map(item => (
+                                <div className="boxHome" key={item.id}>
+                                <img src="https://www.brawlstarsdicas.com.br/wp-content/uploads/2021/06/icone-modo-basquete-brawl-stars-dicas-basket.png" alt="" />
+                                <h3>{item.nomeQuadra}</h3>
+                                    <a className="btnHome"
+                                           href="/seequadra">Ver mais 
+                                    </a>
+                                </div>
+                            ))}
                            
                         </div>
 
@@ -84,15 +105,17 @@ const HomePage = () => {
 
                         <div className="box-containerHome">
 
-                            <div className="boxHome">
-                                <img src="/public/background.jpg" alt="" />
-                                <h3>vegitables</h3>
-                                <p>upto 45% off</p>
-                                <a href="#" className="btnHome">Reservar</a>
-                            </div>
+                            {dataV.map(item => (
+                                <div className="boxHome" key={item.id}>
+                                <img src="https://media.istockphoto.com/vectors/flaming-volley-ball-vector-id672339882?k=20&m=672339882&s=170667a&w=0&h=49MCTGkmIgzsPJOh4wIa-paNtjdBTO7AqUxpaLJ8dv0=" alt="" />
+                                <h3>{item.nomeQuadra}</h3>
+                                <a className="btnHome"
+                                           href="/seequadra">Ver mais 
+                                </a>
+                                </div>
+                            ))}
 
                         </div>
-
 
                     </section>
 
@@ -102,12 +125,15 @@ const HomePage = () => {
 
                         <div className="box-containerHome">
 
-                            <div className="boxHome">
-                                <img src="/public/background.jpg" alt="" />
-                                <h3>vegitables</h3>
-                                <p>upto 45% off</p>
-                                <a href="#" className="btnHome">Reservar</a>
-                            </div>
+                            {dataF.map(item => (
+                                <div className="boxHome" key={item.id}>
+                                <img src="https://static.vecteezy.com/system/resources/previews/001/204/023/non_2x/soccer-png.png" alt="" />
+                                <h3>{item.nomeQuadra}</h3>
+                                <a className="btnHome"
+                                           href="/seequadra">Ver mais 
+                                </a>
+                                </div>
+                            ))}
 
                         </div>
 
@@ -145,19 +171,15 @@ const HomePage = () => {
                                 <a href="#features" className="linksHome"> <i className="fas fa-arrow-right"></i> Basquete </a>
                                 <a href="#products" className="linksHome"> <i className="fas fa-arrow-right"></i> Vôlei </a>
                                 <a href="#categories" className="linksHome"> <i className="fas fa-arrow-right"></i> Futebol </a>
-                                <a href="#review" className="linksHome"> <i className="fas fa-arrow-right"></i> Cadastrar Quadra </a>
+                                <a href="/newquadra" className="linksHome"> <i className="fas fa-arrow-right"></i> Cadastrar Quadra </a>
                             </div>
 
                         </div>
 
                         <div className=" creditHome"> Final Project for <span> MJV </span> Java School </div>
                     </section>
-
                 </div>
-
             </div>
-
-
         </>
     );
 };

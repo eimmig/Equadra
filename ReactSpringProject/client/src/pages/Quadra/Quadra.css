@@ -153,6 +153,20 @@
     color: #fff;
 }
 
+.sairCadQuadra {
+    background-color: #868686f1;
+    border-radius: 5px;
+    width: 70px;
+    margin-top:15%;
+}
+
+.sairCadQuadra a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+
 @media screen and (max-width: 1330px) {
     .formimageCadQuadra {
         display: none;

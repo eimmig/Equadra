@@ -15,15 +15,18 @@ public class Quadra {
     private long id;
 
     @NotNull
+    @Column(name = "nome_quadra")
     @Size(min = 4, max = 255, message = "O campo usuario não pode ser vazio, e deve ter tamanho deve ser entre {min} e {max}")
-    private String nome_quadra;
+    private String nomeQuadra;
 
     @NotNull
+    @Column(name = "tipo_esporte")
     @Size(min = 1, max = 1,message = "O campo Tipo de Esporte não pode ser vazio, O tamanho deve ser entre {min} e {max}")
-    private String tipo_esporte;
+    private String tipoEsporte;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User userId;
 
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AuthService from '../../services/Auth/auth.service';
 import ButtonWithProgress from '../../components/buttonWithProgress';
 import Input from '../../components/input';
-import { Link } from 'react-router-dom';
+import {toast} from 'react-toastify';
 import './LoginPage.css';
 
 export const LoginPage = (props) => {
@@ -23,8 +23,12 @@ export const LoginPage = (props) => {
       password: password
     };
     AuthService.login(body).then((response) => {
+      if(response === false){
+        toast.error('Login e/ou senha incorretos.', {autoClose:5000})
+      }else{
+        setTimeout(function(){ window.location.reload(); }, 500);
+      }
       setPendingApiCall(false);
-      window.location.reload();
     })
   }
 
