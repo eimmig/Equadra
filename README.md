@@ -14,6 +14,8 @@ Para instalar esse projeto será preciso que você tenha a versão 11 do JAVA in
 
 ```
 https://nodejs.org/en/download/
+```
+```
 https://www.java.com/pt-BR/download/
 ```
 
