@@ -26,7 +26,7 @@ Uma série de exemplos passo-a-passo que informam o que você deve executar para
 Faça o clone do projeto:
 
 ```
-Dar exemplos
+$ git clone https://github.com/eimmig/Equadra.git
 ```
 
 Abra a pasta Client
