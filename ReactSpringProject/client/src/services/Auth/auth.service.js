@@ -17,7 +17,10 @@ const login = (user) => {
     .then((response) => {
       debugger;
       if (response.data) {
+        debugger;
+        localStorage.setItem("userId", JSON.stringify(response.data.id));
         localStorage.setItem("token", JSON.stringify(response.data));
+        localStorage.setItem("username", JSON.stringify(response.data.username));
       }
       return response.data;
     })
@@ -27,7 +30,9 @@ const login = (user) => {
 };
 
 const logout = () => {
-  localStorage.removeItem("token");
+  localStorage.removeItem("token")
+  localStorage.removeItem("userId");
+  localStorage.removeItem("username");
 };
 
 const getCurrentUser = () => {

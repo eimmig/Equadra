@@ -58,7 +58,7 @@ export const Quadra = () => {
             toast.error('Nome da quadra não informado', {autoClose:5000})
             return;
         }else{
-            
+            debugger;
             const quadra = {
                 nomeQuadra: form.nomeQuadra,
                 tipoEsporte: tipoEsporte,
@@ -66,6 +66,7 @@ export const Quadra = () => {
             }
             setPendingApiCall(true);
             AuthService.newQuadra(quadra).then(response => {
+                debugger;
                 if(response == false){
                     toast.error('Erro ao cadastrar quadra.', {autoClose:5000})
                 }else{
