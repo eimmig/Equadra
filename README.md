@@ -53,7 +53,7 @@ Lembre-se de verificar se o Maven está ok.
 
 ## 📦 Implantação
 
-Por ser uma aplOcação front e backend resolvi usar o Reac.js por ser uma tecnologia que eu não tinha muito conhecimento e vi uma oportunidade para aperfeiçoar minhas skills como desenvolvedor. Cada página se encontra na pasta `pages` onde possuem seu CSS isolado. Em questão do back-end, dividi os arquivos em controllers, segregando as funções de cada um. Todos os Controllers estendem de um controller genérico, o qual faz a maioria das operações existentes na aplicação.
+Por ser uma aplicação front e backend resolvi usar o Reac.js por ser uma tecnologia que eu não tinha muito conhecimento e vi uma oportunidade para aperfeiçoar minhas skills como desenvolvedor. Cada página se encontra na pasta `pages` onde possuem seu CSS isolado. Em questão do back-end, dividi os arquivos em controllers, segregando as funções de cada um. Todos os Controllers estendem de um controller genérico, o qual faz a maioria das operações existentes na aplicação.
 
 A comunicação entre ambas as aplicações é realizada com o axios, o qual faz requisições do tipo POST, GET, DELETE por exemplo. Ele é o responsável por interligar os dois ambientes. As rotas estão configuradas para receber um objeto do tipo ID (que é montado ao estender do controller genérico) ou uma Entidade completa. A rota de validação de senha é uma rota independente que recebe um POST e utiliza a função `matches` do encriptador para ver se a senha está correta.
 
