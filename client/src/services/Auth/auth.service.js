@@ -1,5 +1,4 @@
 import axios from "axios";
-import {toast} from 'react-toastify';
 
 const signup = (user) => {
   return axios.post("/api/users", user);
@@ -11,13 +10,10 @@ const newQuadra = (quadra) => {
 
 
 const login = (user) => {
-  debugger;
   return axios
     .post("/api/login/valida-login", user)
     .then((response) => {
-      debugger;
       if (response.data) {
-        debugger;
         localStorage.setItem("userId", JSON.stringify(response.data.id));
         localStorage.setItem("token", JSON.stringify(response.data));
         localStorage.setItem("username", JSON.stringify(response.data.username));
